@@ -5,8 +5,10 @@ import { CursoContext } from "./context";
 import NovoCurso from "./novo";
 import { Button, Spinner, Table } from "flowbite-react";
 import { Listar } from "./api";
+import { toast } from 'react-toastify';
 import RemocaoCurso from "./remocao";
 import EdicaoCurso from "./atualizacao";
+import { HiPencil, HiTrash } from 'react-icons/hi';
 
 export default function Curso() {
 
@@ -23,14 +25,22 @@ export default function Curso() {
 
         if (resultado.success && resultado.data !== null) {
             let grid = resultado.data.map((p) =>
-                <Table.Row key={p.id}>
-                    <Table.Cell>{p.nome}</Table.Cell>
-                    <Table.Cell>{p.tipoDoCurso.nome}</Table.Cell>
-                    <Table.Cell>
-                        <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>Editar</Button>
+                <Table.Row key={p.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        {p.nome}
                     </Table.Cell>
-                    <Table.Cell>
-                        <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>Remover</Button>
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        {p.tipoDoCurso.nome}
+                    </Table.Cell>
+                    <Table.Cell colSpan="2" className="text-right">
+                        <div className="flex justify-end space-x-2">
+                            <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
+                                <HiPencil className="h-5 w-5" />
+                            </Button>
+                            <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
+                                <HiTrash className="h-5 w-5" />
+                            </Button>
+                        </div>
                     </Table.Cell>
                 </Table.Row>
             );
@@ -73,33 +83,37 @@ export default function Curso() {
 
     return (
         <>
-            <p className="text-2xl">Cursos</p>
-            <p className="text-sm">Aqui serão listados os cursos cadastrados no sistema</p>
+            <p className="text-2xl mb-5">Cursos</p>
+            <p className="text-sm mb-5">Aqui serão listados os cursos cadastrados no sistema</p>
 
             <CursoContext.Provider value={{ atualizar: setAtualizar, fechar: fecharModals }}>
                 <NovoCurso />
                 {modal}
             </CursoContext.Provider>
 
-            {busy && <Spinner />}
-
-            <div className="mt-2">
-                <Table hoverable>
-                    <Table.Head>
-                        <Table.HeadCell>Nome</Table.HeadCell>
-                        <Table.HeadCell>Tipo</Table.HeadCell>
-                        <Table.HeadCell>
-                            <span>&nbsp;</span>
-                        </Table.HeadCell>
-                        <Table.HeadCell>
-                            <span>&nbsp;</span>
-                        </Table.HeadCell>
-                    </Table.Head>
-                    <Table.Body>
-                        {dados}
-                    </Table.Body>
-                </Table>
-            </div>
+            {busy && 
+                <div class="flex justify-center items-center h-screen">
+                    <Spinner/>
+                </div>}
+            {busy || 
+                <div className="overflow-x-auto mt-5">
+                    <Table hoverable>
+                        <Table.Head>
+                            <Table.HeadCell>Nome</Table.HeadCell>
+                            <Table.HeadCell>Tipo</Table.HeadCell>
+                            <Table.HeadCell>
+                                <span>&nbsp;</span>
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                <span>&nbsp;</span>
+                            </Table.HeadCell>
+                        </Table.Head>
+                        <Table.Body className="divide-y">
+                            {dados}
+                        </Table.Body>
+                    </Table>
+                </div>
+            }
         </>
     )
 }

@@ -24,7 +24,6 @@ export default function TipoCurso() {
         const resultado = await Listar();
     
         if (resultado.success && resultado.data !== null) {
-
             let grid = resultado.data.map((p) =>
                 <Table.Row key={p.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -89,23 +88,27 @@ export default function TipoCurso() {
                 {modal}
             </TipoCursoContext.Provider>
 
-            {busy && <Spinner/>}
-            {busy || <div className="overflow-x-auto mt-2">
-            <Table hoverable>
-                <Table.Head>
-                    <Table.HeadCell>Nome</Table.HeadCell>
-                    <Table.HeadCell>
-                        <span>&nbsp;</span>
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        <span>&nbsp;</span>
-                    </Table.HeadCell>
-                </Table.Head>
-                <Table.Body className="divide-y">
-                    {dados}
-                </Table.Body>
-            </Table>
-            </div>
+            {busy && 
+                <div class="flex justify-center items-center h-screen">
+                    <Spinner/>
+                </div>}
+            {busy || 
+                <div className="overflow-x-auto mt-5">
+                    <Table hoverable>
+                        <Table.Head>
+                            <Table.HeadCell>Nome</Table.HeadCell>
+                            <Table.HeadCell>
+                                <span>&nbsp;</span>
+                            </Table.HeadCell>
+                            <Table.HeadCell>
+                                <span>&nbsp;</span>
+                            </Table.HeadCell>
+                        </Table.Head>
+                        <Table.Body className="divide-y">
+                            {dados}
+                        </Table.Body>
+                    </Table>
+                </div>
             }
         </>
     )
