@@ -62,6 +62,5 @@ export default function ListarClient({ nome }) {
             </div>
             }
         </>
-
     )
 }
