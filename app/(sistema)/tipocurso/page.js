@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import RemocaoTipoCurso from "./remocao";
 import EdicaoTipoCurso from "./atualizacao";
 import { HiPencil, HiTrash } from 'react-icons/hi';
+import Link from "next/link";
 
 export default function TipoCurso() {
 
@@ -37,6 +38,7 @@ export default function TipoCurso() {
                     <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
                         <HiTrash className="h-5 w-5" />
                     </Button>
+                    <Button as={Link} size="sm" color="warning" href={"listar/" + p.nome}>Listar cursos</Button>
                     </div>
                 </Table.Cell>                
                 </Table.Row>
