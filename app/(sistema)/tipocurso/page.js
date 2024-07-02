@@ -8,6 +8,7 @@ import { Listar } from "./api";
 import { toast } from 'react-toastify';
 import RemocaoTipoCurso from "./remocao";
 import EdicaoTipoCurso from "./atualizacao";
+import { HiPencil, HiTrash } from 'react-icons/hi';
 
 export default function TipoCurso() {
 
@@ -25,14 +26,20 @@ export default function TipoCurso() {
         if (resultado.success && resultado.data !== null) {
 
             let grid = resultado.data.map((p) =>
-                <Table.Row key={p.id}>
-                    <Table.Cell>{p.nome}</Table.Cell>
-                    <Table.Cell>
-                    <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>Editar</Button>
-                    </Table.Cell>
-                    <Table.Cell>
-                    <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>Remover</Button>
-                    </Table.Cell>
+                <Table.Row key={p.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    {p.nome}
+                </Table.Cell>                
+                <Table.Cell colSpan="2" className="text-right">
+                    <div className="flex justify-end space-x-2">
+                    <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
+                        <HiPencil className="h-5 w-5" />
+                    </Button>
+                    <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
+                        <HiTrash className="h-5 w-5" />
+                    </Button>
+                    </div>
+                </Table.Cell>                
                 </Table.Row>
             );
             setDados(grid);
@@ -83,8 +90,8 @@ export default function TipoCurso() {
             </TipoCursoContext.Provider>
 
             {busy && <Spinner/>}
-            {busy || <div className="mt-2">
-            <Table hoverable className="mt-5">
+            {busy || <div className="overflow-x-auto mt-2">
+            <Table hoverable>
                 <Table.Head>
                     <Table.HeadCell>Nome</Table.HeadCell>
                     <Table.HeadCell>
@@ -94,7 +101,7 @@ export default function TipoCurso() {
                         <span>&nbsp;</span>
                     </Table.HeadCell>
                 </Table.Head>
-                <Table.Body>
+                <Table.Body className="divide-y">
                     {dados}
                 </Table.Body>
             </Table>
