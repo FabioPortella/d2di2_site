@@ -7,9 +7,9 @@ export default function Layout({ children }) {
     return (
         <>
             <header>
-                <Navbar fluid className="bg-neutral-300">
+                <Navbar fluid className="bg-yellow-300 mb-8">
                     <NavbarBrand href="http://localhost:3000">
-                        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Site de Exemplo D2DI2</span>
+                        <span className="self-center whitespace-nowrap text-xl font-semibold text-white">Site de Exemplo D2DI2</span>
                     </NavbarBrand>
                     <div className="flex md:order-2">
                         <Dropdown arrowIcon={false} inline label={<Avatar rounded />}>
@@ -22,9 +22,9 @@ export default function Layout({ children }) {
                         <NavbarToggle />
                     </div>
                     <NavbarCollapse>                        
-                        <NavbarLink as={Link} href="/">Início</NavbarLink>
-                        <NavbarLink as={Link} href="/tipocurso">Tipo de Curso</NavbarLink>
-                        <NavbarLink as={Link} href="/curso">Curso</NavbarLink>
+                        <NavbarLink className="text-white" as={Link} href="/">Início</NavbarLink>
+                        <NavbarLink className="text-white" as={Link} href="/tipocurso">Tipo de Curso</NavbarLink>
+                        <NavbarLink className="text-white" as={Link} href="/curso">Curso</NavbarLink>
                     </NavbarCollapse>
                 </Navbar>
             </header>

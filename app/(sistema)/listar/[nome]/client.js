@@ -47,7 +47,7 @@ export default function ListarClient({ nome }) {
             <div className="overflow-x-auto mt-5">
             <Table hoverable>
                 <Table.Head>
-                    <Table.HeadCell colSpan={3} className="text-center">{dado}</Table.HeadCell>
+                    <Table.HeadCell colSpan={3} className="text-center text-base bg-gray-200">{dado}</Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
                 {lista.map((item) => (

@@ -28,18 +28,15 @@ export default function TipoCurso() {
             let grid = resultado.data.map((p) =>
                 <Table.Row key={p.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                    {p.nome}
+                    <Link href={"listar/" + p.nome}>{p.nome}</Link> 
                 </Table.Cell>                
                 <Table.Cell colSpan="2" className="text-right">
                     <div className="flex justify-end space-x-2">
-                    <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
+                    <Button outline gradientMonochrome="lime" size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
                         <HiPencil className="h-5 w-5" />
                     </Button>
-                    <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
+                    <Button outline gradientMonochrome="failure" size="sm" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
                         <HiTrash className="h-5 w-5" />
-                    </Button>
-                    <Button  size="sm" color="warning" as={Link} href={"listar/" + p.nome}>
-                        <HiViewList className="h-5 w-5"/>
                     </Button>
                     </div>
                 </Table.Cell>                
@@ -100,13 +97,7 @@ export default function TipoCurso() {
                 <div className="overflow-x-auto mt-5">
                     <Table hoverable>
                         <Table.Head>
-                            <Table.HeadCell>Nome</Table.HeadCell>
-                            <Table.HeadCell>
-                                <span>&nbsp;</span>
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                <span>&nbsp;</span>
-                            </Table.HeadCell>
+                            <Table.HeadCell colSpan={3} className="text-base bg-gray-200">Nome</Table.HeadCell>
                         </Table.Head>
                         <Table.Body className="divide-y">
                             {dados}

@@ -55,7 +55,7 @@ export default function NovoTipoCurso() {
 
     return (
         <>
-            <Button onClick={() => { setModalOpen(true) }}>
+            <Button gradientMonochrome="cyan" onClick={() => { setModalOpen(true) }}>
                 <HiPlus className="mr-1 h-5 w-5" />
                 <span>Novo</span>
             </Button>
@@ -76,10 +76,10 @@ export default function NovoTipoCurso() {
                         </div>
                     </Modal.Body>
                     <Modal.Footer className="justify-end">
-                        <Button size="sm" type="submit" isProcessing={busy}>
+                        <Button gradientMonochrome="cyan" size="sm" type="submit" isProcessing={busy}>
                             Salvar
                         </Button>
-                        <Button size="sm" color="gray" onClick={closeModal}>
+                        <Button size="sm" outline gradientMonochrome="lime" onClick={closeModal}>
                             Cancelar
                         </Button>
                     </Modal.Footer>

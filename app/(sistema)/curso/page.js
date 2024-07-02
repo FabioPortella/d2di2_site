@@ -34,10 +34,10 @@ export default function Curso() {
                     </Table.Cell>
                     <Table.Cell colSpan="2" className="text-right">
                         <div className="flex justify-end space-x-2">
-                            <Button size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
+                            <Button outline gradientMonochrome="lime" size="sm" onClick={() => { setOperacao({ id: p.id, action: 'edit' }) }}>
                                 <HiPencil className="h-5 w-5" />
                             </Button>
-                            <Button size="sm" color="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
+                            <Button size="sm" outline gradientMonochrome="failure" onClick={() => { setOperacao({ id: p.id, action: 'delete' }) }}>
                                 <HiTrash className="h-5 w-5" />
                             </Button>
                         </div>
@@ -99,12 +99,12 @@ export default function Curso() {
                 <div className="overflow-x-auto mt-5">
                     <Table hoverable>
                         <Table.Head>
-                            <Table.HeadCell>Nome</Table.HeadCell>
-                            <Table.HeadCell>Tipo</Table.HeadCell>
-                            <Table.HeadCell>
+                            <Table.HeadCell className="text-base bg-gray-200">Nome</Table.HeadCell>
+                            <Table.HeadCell className="text-base bg-gray-200">Tipo</Table.HeadCell>
+                            <Table.HeadCell className="text-base bg-gray-200">
                                 <span>&nbsp;</span>
                             </Table.HeadCell>
-                            <Table.HeadCell>
+                            <Table.HeadCell className="text-base bg-gray-200">
                                 <span>&nbsp;</span>
                             </Table.HeadCell>
                         </Table.Head>
