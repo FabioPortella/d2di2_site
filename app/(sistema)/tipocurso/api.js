@@ -21,10 +21,11 @@ export async function Inserir(data) {
 
     await fetch(url, args).then((result) => {
         result.json().then((resultData) => {
-            if (result.status == 200) {
+            if (result.status == 201) {
                 //ações em caso de sucesso
                 retorno.success = true;
-                retorno.message = resultData;
+                // retorno.message = resultData;
+                retorno.message = "Tipo de curso salvo com sucesso";
             }
             else {
                 //ações em caso de erro
@@ -241,7 +242,7 @@ export async function Atualizar(data) {
             if (result.status == 200) {
                 //ações em caso de sucesso
                 retorno.success = true;
-                retorno.message = "Tipo de curso salvo com sucesso";
+                retorno.message = "Tipo de curso atualizado com sucesso";
             }
             else {
                 //ações em caso de erro

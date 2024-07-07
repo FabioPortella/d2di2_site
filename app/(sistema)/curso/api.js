@@ -21,7 +21,8 @@ export async function Inserir(data) {
 
     await fetch(url, args).then((result) => {
         result.json().then((resultData) => {
-            if (result.status == 200) {
+            console.log(args)
+            if (result.status == 201) {
                 //ações em caso de sucesso
                 retorno.success = true;
                 retorno.message = "Curso salvo com sucesso";

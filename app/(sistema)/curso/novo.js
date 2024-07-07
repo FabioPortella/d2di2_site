@@ -91,10 +91,12 @@ export default function NovoCurso() {
                         </div>
                         <div className="mb-2">
                             <Label htmlFor="tipocurso">Tipo de curso</Label>
-                            <Select id="tipocurso" {...register("tipoCursoId")}>
+                            {/* <Select id="tipocurso" {...register("tipoCursoId")}> */}
+                            <Select id="tipocurso" {...register("tipoDoCurso")}>
                                 {tipoCursoList}
                             </Select>
-                            <span className="text-sm text-red-600">{errors?.tipoCursoId?.message}</span>
+                            <span className="text-sm text-red-600">{errors?.tipoDoCurso?.message}</span>
+                            {/* <span className="text-sm text-red-600">{errors?.tipoCursoId?.message}</span> */}
                         </div>
                     </Modal.Body>
                     <Modal.Footer className="justify-end">
