@@ -118,7 +118,7 @@ export default function EdicaoCurso({ id }) {
                         <Label htmlFor="tipocurso">Tipo de curso</Label>
                         <Select id="tipocurso" {...register("tipoCursoId")}>
                             {tipoCursoList}
-                        </Select>
+                        </Select>                        
                         <span className="text-sm text-red-600">{errors?.tipoCursoId?.message}</span>
                     </div>
                 </Modal.Body>
