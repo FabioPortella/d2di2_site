@@ -123,10 +123,10 @@ export default function EdicaoCurso({ id }) {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="justify-end">
-                    <Button size="sm" type="submit" isProcessing={busy} disabled={busy}>
+                    <Button gradientMonochrome="cyan" size="sm" type="submit" isProcessing={busy} disabled={busy}>
                         Salvar
                     </Button>
-                    <Button size="sm" color="gray" onClick={closeModal}>
+                    <Button outline gradientMonochrome="lime" size="sm" color="gray" onClick={closeModal}>
                         Cancelar
                     </Button>
                 </Modal.Footer>

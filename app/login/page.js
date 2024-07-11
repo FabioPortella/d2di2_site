@@ -56,13 +56,13 @@ export default function Login() {
                                     <TextInput id="email" placeholder="usuario@usuario.com" {...register("email")} />
                                     <span className="text-sm text-red-600">{errors?.email?.message}</span>
                                 </div>
-                                <div className="mb-2">
+                                <div className="mb-5">
                                     <Label htmlFor="senha" className="text-sm">Senha</Label>
                                     <TextInput id="senha" type="password" placeholder="******" {...register("senha")} />
                                     <span className="text-sm text-red-600">{errors?.senha?.message}</span>
                                 </div>
                                 <div className="flex justify-center">
-                                    <Button type="submit">Entrar</Button>
+                                    <Button gradientMonochrome="cyan" type="submit">Entrar</Button>
                                 </div>
                             </div>
                         </form>

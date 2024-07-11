@@ -33,7 +33,11 @@ export default function Layout({ children, usuario  }) {
                     </div>
                     <NavbarCollapse>                        
                         <NavbarLink className="text-white" as={Link} href="/">Início</NavbarLink>
-                        <NavbarLink className="text-white" as={Link} href="/tipocurso">Tipo de Curso</NavbarLink>
+                        {usuario.admin ?
+                        <NavbarLink className="text-white" as={Link} href="/tipocurso">
+                            Tipo de Curso
+                        </NavbarLink> : null
+                        }
                         <NavbarLink className="text-white" as={Link} href="/curso">Curso</NavbarLink>
                     </NavbarCollapse>
                 </Navbar>

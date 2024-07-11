@@ -8,7 +8,7 @@ export default async function Layout({ children }) {
     const usuario = await dados();
 
     return (
-        <LayoutClient usuario={{nome: usuario.user.name, email: usuario.user.email}}>
+        <LayoutClient usuario={{nome: usuario.user.name, email: usuario.user.email, admin: usuario.user.tipo === 1}}>
             {children}
         </LayoutClient>
     )
