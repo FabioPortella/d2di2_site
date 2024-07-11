@@ -47,9 +47,9 @@ export default function NovoCurso() {
 
     const onSubmit = async (data) => {
         setBusy(busy => true);
-
+        
         const resultado = await Inserir(data);
-
+console.log(resultado)
         if (resultado.success) {
             closeModal();
             fallbackContext.atualizar(true);

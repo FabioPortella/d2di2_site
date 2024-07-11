@@ -9,6 +9,8 @@ import NovoUsuario from "./novo";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
+import { login } from "./actions";
+
 
 const crypto = require('crypto');
 
@@ -32,17 +34,12 @@ export default function Login() {
 
     const onSubmit = async (data) => {
         data.senha = createSHA256Hash(data.senha + 'khadfhyf388');
-
-        //requisição à API
-        const resultado = null;
-
-        if(resultado && resultado !== ''){
+        const resultado = await login(data);
+    
+        if(resultado && resultado !== '')
             toast.error(resultado);
-        } // adicionaro o else para corrigir um bug do ao 
         else
-        {
             router.push("/");
-        }
     }
 
     return (

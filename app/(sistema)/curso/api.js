@@ -21,7 +21,7 @@ export async function Inserir(data) {
 
     await fetch(url, args).then((result) => {
         result.json().then((resultData) => {
-            if (result.status == 201) {
+            if (result.status == 200) {
                 //ações em caso de sucesso
                 retorno.success = true;
                 retorno.message = "Curso salvo com sucesso";
@@ -39,17 +39,17 @@ export async function Inserir(data) {
                 else
                     errorMessage = resultData;
 
-                retorno.status = false;
+                retorno.success = false;
                 retorno.message = errorMessage;
             }
         }).catch(() => {
             //erro na conversão para Json
-            retorno.status = false;
+            retorno.success = false;
             retorno.message = 'Dados inválidos';
         })
     }).catch((ex) => {
         //erro geral
-        retorno.status = false;
+        retorno.success = false;
         retorno.message = ex.message;
     });
 

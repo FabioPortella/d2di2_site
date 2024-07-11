@@ -21,7 +21,7 @@ export async function Inserir(data) {
 
     await fetch(url, args).then((result) => {
         result.json().then((resultData) => {
-            if (result.status == 201) {
+            if (result.status == 200) {
                 //ações em caso de sucesso
                 retorno.success = true;
                 // retorno.message = resultData;
